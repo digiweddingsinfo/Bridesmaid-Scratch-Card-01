@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width" />
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700italic,700' rel='stylesheet' type='text/css'>
   
-  <title>Scratch Card</title>
+  <title>Gender Reveal Scratch Off</title>
   <style type="text/css">
 html {
   box-sizing: border-box;
@@ -34,12 +34,14 @@ body {
 @media only screen and (max-width : 480px) {
   .scratchpad {width:400px;height:396px;}
   .scratch-container {width:400px !important;}
+
 }
 
-/* Custom, iPhone Retina */ 
+
 @media only screen and (max-width : 450px) {
   .scratchpad {width:450px;height:800px;}
   .scratch-container {width:450px !important;}
+
 }
 .promo-container {
 	background:#FFF;
@@ -81,7 +83,7 @@ body {
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  z-index: 10; /* Make sure it's on top */
+  z-index: 10;
 }
 
   </style>
@@ -93,14 +95,14 @@ body {
 </div>
 <div class="promo-container" style="display:none;">
   <div class="promo-code"></div>
-  <a href="htttp://jennamolby.com" target="_blank" class="btn">Register Now</a>
+
  
 </div>
 
 <button class="try-again-btn" id="tryAgain">Try Again</button>
 
 <script src="https://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
-<script type="text/javascript" src="https://jennamolby.com/scratch-and-win/js/wScratchPad.min.js"></script>
+<script type="text/javascript" src="./wScratchPad.min.js"></script>
 
 <script type="text/javascript">
 
@@ -118,19 +120,14 @@ if (selectBG == bg1) {
     var promoCode = '';
   }
 $('#promo').wScratchPad({
-    // the size of the eraser
+
     size        : 10,    
-    // the randomized scratch image   
     bg:  selectBG,
-    // give real-time updates
     realtime    : true, 
-    // The overlay image
     fg: 'images/front.png',
-    // The cursor (coin) image
     'cursor': 'url("") 5 5, default',
     
     scratchMove: function (e, percent) {
-        // Show the plain-text promo code and call-to-action when the scratch area is 50% scratched
         if ((percent > 50) && (promoCode != '')) {
           $('.promo-container').show();
           $('body').removeClass('not-selectable');
@@ -142,8 +139,8 @@ $('#promo').wScratchPad({
  });
 
  $('#tryAgain').on('click', function () {
-  $('.promo-container').hide(); // Hide promo section again
-  $('#promo').wScratchPad('clear'); // Clear existing scratch
-  $('#promo').wScratchPad('reset'); // Reset to original state
+  $('.promo-container').hide();
+  $('#promo').wScratchPad('clear');
+  $('#promo').wScratchPad('reset'); 
 });
 </script>
